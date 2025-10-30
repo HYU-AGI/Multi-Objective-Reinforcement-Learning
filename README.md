@@ -1,5 +1,7 @@
 # AGI 발현을 위한 Self-Evolver에 대한 연구 개발 내용 4종 Github 공개
 ## 다양한 평가요소를 반영한 다목적 강화학습 기법
+### 💡 예시
+![image](./img/example.png)
 
 ## ⚙️ Requirements
 To install requirements:
