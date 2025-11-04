@@ -81,6 +81,3 @@ This project builds on:
 - MODPO: Multi-Objective Direct Preference Optimization
   Paper: https://arxiv.org/pdf/2310.03708.pdf
   Code: https://github.com/ZHZisZZ/modpo
-
-## Acknowledgments
-We thank the authors of MODPO (Zhou et al.) for releasing their code and paper, which our implementation and experiments build upon.
