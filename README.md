@@ -5,9 +5,10 @@
 
 ## ⚙️ Requirements
 To install requirements:
-```
+```bash
 conda create -n modpo python=3.10
 conda activate modpo
+# torch를 먼저 설치하는 것을 권장합니다 (CUDA 버전에 맞게 조정)
 pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
 ```
@@ -56,6 +57,9 @@ system    > Goodbye!
 - /exit 은 세션을 종료한다.
 
 ## 🧩 데이터 준비
+
+**Note**: 이 예시는 커스텀 데이터를 사용할 때의 가이드입니다. 기본 예시는 `./data/sample` 경로를 사용합니다.
+
 학습용 원시 데이터를 JSONL로 준비한다. 각 줄은 하나의 프롬프트와 그에 대한 생성물 리스트를 가진다.
 ```
 {"prompt":"How do I brew a good pour-over coffee at home?","generations":[{"text":"Use a 1:15 coffee-to-water ratio, 92–96°C water, rinse filter, bloom 30–45 s with ~2× dose, then pour in slow circles to finish around 2:30–3:00; grind medium-fine.","trust":0.90,"creativity":0.40},{"text":"Just boil water and pour it over pre-ground coffee until the mug is full; timing and grind size don’t matter.","trust":0.20,"creativity":0.30},{"text":"Think of it like watercolor: wake the grounds with a bloom, then paint three light spirals, ending with a calm center pour near 2:45.","trust":0.70,"creativity":0.85}]}
@@ -63,9 +67,15 @@ system    > Goodbye!
 {"prompt":"What’s the difference between HTTP and HTTPS?","generations":[{"text":"HTTPS is HTTP over TLS/SSL, which encrypts data in transit and authenticates the server, protecting against eavesdropping and tampering.","trust":0.95,"creativity":0.35},{"text":"They’re basically the same; HTTPS only changes the port number and is not about security.","trust":0.15,"creativity":0.20},{"text":"HTTP is a public postcard; HTTPS is a sealed envelope with a stamp proving it’s from the right sender.","trust":0.75,"creativity":0.85}]}
 ```
 
-데이터 전처리 실행 예시
-```
-python data/data_prepare.py   --input ./data/raw_samples.jsonl   --outdir ./data/processed   --train_ratio 0.9   --k_neg 2   --min_margin 0.1
+데이터 전처리 실행 예시 (경로는 프로젝트 구조에 맞게 조정하세요)
+```bash
+# run.sh의 DATA_ROOT와 일치하도록 ./data/sample로 출력
+python data/data_prepare.py \
+  --input ./data/raw_samples.jsonl \
+  --outdir ./data/sample \
+  --train_ratio 0.9 \
+  --k_neg 2 \
+  --min_margin 0.1
 ```
 위 스크립트는 신뢰도와 창의성 점수로 쌍을 만들고, chosen/rejected 형식의 train.jsonl과 val.jsonl을 생성한다. 필요한 경우 run.sh에서 dataset_name을 커스텀 항목으로 바꿔 사용한다.
 
