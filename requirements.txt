@@ -8,4 +8,8 @@ wandb==0.15.12
 scipy==1.11.3
 tqdm==4.66.1
 tyro==0.6.0
+# Note: pyarrow version may need adjustment based on your system
+# If encountering compatibility issues, try pyarrow>=14.0.0,<21.0.0
 pyarrow==20.0.0
+# torch==2.1.0 should be installed separately via:
+# pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118

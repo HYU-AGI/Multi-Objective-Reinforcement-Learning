@@ -5,12 +5,18 @@
 
 ## ⚙️ Requirements
 To install requirements:
-```
+```bash
 conda create -n modpo python=3.10
 conda activate modpo
 pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
 ```
+
+**Important Notes:**
+- Python 3.10 or 3.11 recommended for compatibility
+- torch==2.1.0 with CUDA 11.8 is required for optimal performance
+- If using different CUDA version, adjust torch installation accordingly
+- Flash attention 2 requires compatible GPU (Ampere or newer)
 
 ## 💻 Running Multi-Objective-Reinforcement-Learning
 ### Step 1. 준비된 데이터셋으로 다목적 강화학습 진행
