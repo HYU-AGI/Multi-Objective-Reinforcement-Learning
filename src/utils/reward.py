@@ -1,4 +1,4 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 from dataclasses import dataclass, asdict
 from typing import Any, Text, List, Dict, Optional
 
@@ -18,7 +18,7 @@ class RewardWrapperInput:
 
 @dataclass
 class RewardWrapperBase(ABC):
-    @abstractclassmethod
+    @abstractmethod
     def __call__(self, inputs: Any) -> Any:
         raise NotImplementedError
 
