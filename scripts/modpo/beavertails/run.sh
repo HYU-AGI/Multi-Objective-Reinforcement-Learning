@@ -6,8 +6,9 @@ export HF_HOME=/workspace/.hf
 export HF_DATASETS_CACHE=${HF_HOME}/datasets
 export TOKENIZERS_PARALLELISM=false
 
-# GPU 고정: accelerate 버전 차이를 피하려면 이렇게 하는 게 가장 안전합니다
-export CUDA_VISIBLE_DEVICES=4,7
+# GPU 설정 (환경변수가 없으면 기본값 사용)
+# 사용법: CUDA_VISIBLE_DEVICES=0,1 ./scripts/modpo/beavertails/run.sh
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-"4,7"}
 
 LAUNCH="accelerate launch --config_file scripts/accelerate_configs/multi_gpu.yaml --num_processes=2"
 
