@@ -8,8 +8,7 @@ To install requirements:
 ```bash
 conda create -n modpo python=3.10
 conda activate modpo
-# torch를 먼저 설치하는 것을 권장합니다 (CUDA 버전에 맞게 조정)
-pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
+# 라이브러리를 개별로 설치하는 경우, torch를 먼저 설치하는 것을 권장합니다. (CUDA 버전에 맞게 조정해주세요.)
 pip install -r requirements.txt
 ```
 
